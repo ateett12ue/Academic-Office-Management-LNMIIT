@@ -6,13 +6,13 @@
 <%@page import="javax.servlet.*"%>
 <%@page import="javax.servlet.http.*"%>
 <style>
-*{
+	* {
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
-        background-color: #C0C0C0;
+		background-color: #C0C0C0;
 	}
 
-.Data{
+	.Data {
 		border: 2px double #f1f1f1;
 		width: 300px;
 		padding: 8px;
@@ -20,15 +20,15 @@
 		display: inline-block;
 		border-radius: 10px;
 	}
-	.Data label{
-		;
-	}
-	.Data input{
+
+	.Data label {}
+
+	.Data input {
 		float: right;
 		box-shadow: none;
 		cursor: pointer;
 		outline: none;
-		border:0px;
+		border: 0px;
 	}
 </style>
 
@@ -74,45 +74,45 @@ resultSet1= statement.executeQuery(sql1);
 			<table style="width: 25%;" border="1">
 				<tbody>
 					<tr>
-					<td>Sr.No.</td>
-					<td>Course</td>
-					<td>Course Id</td>
-					<td>Credit</td>
+						<td>Sr.No.</td>
+						<td>Course</td>
+						<td>Course Id</td>
+						<td>Credit</td>
 					</tr>
 					<tr>
-					<td><input type="text" name="Srno" readonly value=<%out.print(i++); %> ></td>
-					<td><input type="text" name="CourseN" value="/"></td>
-					<td><input type="text" name="CourseId" value="/"></td>
-					<td><input type="text" name="cCredit" value="/"></td>
+						<td><input type="text" name="Srno" readonly value=<%out.print(i++); %>></td>
+						<td><input type="text" name="CourseN" value="/"></td>
+						<td><input type="text" name="CourseId" value="/"></td>
+						<td><input type="text" name="cCredit" value="/"></td>
 					</tr>
-				</tbody>		
+				</tbody>
 			</table>
 			<br><br>
 			<h4><b>Drop Course</b></h4>
 			<table style="width: 25%;" border="1">
 				<tbody>
 					<tr>
-					<td>Sr.No.</td>
-					<td>Course</td>
-					<td>Course Id</td>
+						<td>Sr.No.</td>
+						<td>Course</td>
+						<td>Course Id</td>
 					</tr>
 					<%
-						String sql2 = "select course.CourseCode, course.Name from performance_sheet INNER JOIN course on performance_sheet.CourseCode = course.CourseCode INNER JOIN student on performance_sheet.EnrollID = student.EnrollID where performance_sheet.EnrollID = '"+EnrollID+"' and course.Type='PE' and performance_sheet.semester = '"+Semester+"' ";
-						resultSet2=statement2.executeQuery(sql2);
-					%>
+									String sql2 = "select course.CourseCode, course.Name from performance_sheet INNER JOIN course on performance_sheet.CourseCode = course.CourseCode INNER JOIN student on performance_sheet.EnrollID = student.EnrollID where performance_sheet.EnrollID = '"+EnrollID+"' and course.Type='PE' and performance_sheet.semester = '"+Semester+"' ";
+									resultSet2=statement2.executeQuery(sql2);
+								%>
 					<% while(resultSet2.next()){ %>
 					<tr>
-					<td><input type="text" name="Srno" readonly value=<%out.print(j++); %> ></td>
-					<td><input type="text" name="CourseN" value="<%=resultSet2.getString("Name")%>"></td>
-					<td><input type="text" name="CourseId" value="<%=resultSet2.getString("CourseCode")%>"></td>
+						<td><input type="text" name="Srno" readonly value=<%out.print(j++); %>></td>
+						<td><input type="text" name="CourseN" value="<%=resultSet2.getString("Name")%>"></td>
+						<td><input type="text" name="CourseId" value="<%=resultSet2.getString("CourseCode")%>"></td>
 					</tr>
 				</tbody>
-						<%
-					}
-						%>
+				<%
+								}
+									%>
 			</table><br><br>
-			<input type="submit" value="Submit">					
-		</form>
+			<input type="submit" value="Submit">
+			</form>
 		<%
 }catch (Exception e) {
 e.printStackTrace();
