@@ -12,7 +12,7 @@ import="javax.servlet.http.*"%>
   #f1f1f1; width: 300px; padding: 8px; padding-bottom: 12px; display:
   inline-block; border-radius: 10px; } .Data label{ float: left; } .Data input{
   float: right; box-shadow: none; cursor: pointer; outline: none; border:0px;*/
-  }}
+  }
 </Style>
 
 <% String EnrollID = request.getParameter("ErollID"); String driverName =
